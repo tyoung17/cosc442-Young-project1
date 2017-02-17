@@ -2,12 +2,11 @@ package edu.towson.cis.cosc442.project1.monopoly.gui;
 
 import edu.towson.cis.cosc442.project1.monopoly.Cell;
 import edu.towson.cis.cosc442.project1.monopoly.Player;
-import edu.towson.cis.cosc442.project1.monopoly.UtilityCell;
 
 public class UtilCellInfoFormatter implements CellInfoFormatter {
 
 	public String format(Cell cell) {
-        UtilityCell c = (UtilityCell)cell;
+        Cell c = (Cell)cell;
         StringBuffer buf = new StringBuffer();
         Player owner = cell.getTheOwner();
         String ownerName = "";
