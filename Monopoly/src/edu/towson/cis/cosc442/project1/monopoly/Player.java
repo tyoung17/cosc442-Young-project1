@@ -65,20 +65,34 @@ public class Player {
                     cell.getColorGroup(), 
                     new Integer(getPropertyNumberForColor(cell.getColorGroup())+1));
         }
-        if(property instanceof RailRoadCell) {
-            railroads.add(property);
-            colorGroups.put(
-                    RailRoadCell.COLOR_GROUP, 
-                    new Integer(getPropertyNumberForColor(RailRoadCell.COLOR_GROUP)+1));
-        }
-        if(property instanceof UtilityCell) {
+        buyRailRoad(property);
+        buyUtility(property);
+        setMoney(getMoney() - amount);
+    }
+
+	/**
+	 * @param property
+	 */
+	public void buyUtility(Cell property) {
+		if(property instanceof UtilityCell) {
             utilities.add(property);
             colorGroups.put(
                     UtilityCell.COLOR_GROUP, 
                     new Integer(getPropertyNumberForColor(UtilityCell.COLOR_GROUP)+1));
         }
-        setMoney(getMoney() - amount);
-    }
+	}
+
+	/**
+	 * @param property
+	 */
+	public void buyRailRoad(Cell property) {
+		if(property instanceof RailRoadCell) {
+            railroads.add(property);
+            colorGroups.put(
+                    RailRoadCell.COLOR_GROUP, 
+                    new Integer(getPropertyNumberForColor(RailRoadCell.COLOR_GROUP)+1));
+        }
+	}
 	
 	/**
 	 * Can buy house.
