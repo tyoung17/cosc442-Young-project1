@@ -179,18 +179,39 @@ public class Player {
 		if(getPosition().isAvailable()) {
 			IOwnable c = getPosition();
 			c.setAvailable(false);
-			if(c instanceof PropertyCell) {
-				PropertyCell cell = (PropertyCell)c;
-				purchaseProperty(cell);
-			}
-			if(c instanceof RailRoadCell) {
-				RailRoadCell cell = (RailRoadCell)c;
-				purchaseRailRoad(cell);
-			}
-			if(c instanceof UtilityCell) {
-				Cell cell = (Cell)c;
-				purchaseUtility(cell);
-			}
+			purchaseProperty(c);
+			purchaseRailRoad(c);
+			purchaseUtility(c);
+		}
+	}
+
+	/**
+	 * @param c
+	 */
+	public void purchaseProperty(IOwnable c) {
+		if(c instanceof PropertyCell) {
+			PropertyCell cell = (PropertyCell)c;
+			purchaseProperty(cell);
+		}
+	}
+
+	/**
+	 * @param c
+	 */
+	public void purchaseUtility(IOwnable c) {
+		if(c instanceof UtilityCell) {
+			Cell cell = (Cell)c;
+			purchaseUtility(cell);
+		}
+	}
+
+	/**
+	 * @param c
+	 */
+	public void purchaseRailRoad(IOwnable c) {
+		if(c instanceof RailRoadCell) {
+			RailRoadCell cell = (RailRoadCell)c;
+			purchaseRailRoad(cell);
 		}
 	}
 	
